@@ -79,8 +79,8 @@
 
 		<preview url="panos/IMG_20260915_112329_00_093.tiles/preview.jpg" />
 
-		<image hfov="1.00" vfov="0.562500" voffset="0.00">
-			<flat url="panos/IMG_20260915_112329_00_093.tiles/pano.jpg" />
+		<image>
+			<cube url="panos/IMG_20260915_112329_00_093.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
