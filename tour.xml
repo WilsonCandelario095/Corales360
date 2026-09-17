@@ -83,6 +83,66 @@
 			<cube url="panos/IMG_20260915_112329_00_093.tiles/pano_%s.jpg" />
 		</image>
 
+		<hotspot name="coral_stage_01" url="media/liberacion_gametos.jpg" ath="0" atv="0" distorted="true" scale="0.35" visible="true" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_02" url="media/fecundacion_externa.jpg" ath="50" atv="8" distorted="true" scale="0.35" visible="false" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_03" url="media/segmentacion.jpg" ath="110" atv="0" distorted="true" scale="0.35" visible="false" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_04" url="media/desarrollo_embrionario.jpg" ath="180" atv="-8" distorted="true" scale="0.35" visible="false" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_05" url="media/larva_planula.jpg" ath="245" atv="8" distorted="true" scale="0.35" visible="false" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_06" url="plugins/videoplayer.js" videourl="media/nacimiento.mp4"  ath="310" atv="0" distorted="true" scale="0.35" pausedonstart="true" loop="false" volume="0.8" visible="false" onclick="togglepause();" />
+		<hotspot name="coral_stage_07" url="media/asentamiento_metamorfosis.jpg" ath="20" atv="-1" distorted="true" scale="0.6" visible="false" onclick="next_coral_sequence();" />
+		<hotspot name="coral_stage_08" url="plugins/videoplayer.js" videourl="media/arrecifes_sanos.mp4"  ath="330" atv="-1" distorted="true" scale="0.6" pausedonstart="true" loop="false" volume="0.8" visible="false" onclick="togglepause();" />
+
+		<action name="next_coral_sequence">
+			if(coral_sequence_index == null, set(coral_sequence_index, 1); );
+			if(coral_sequence_index == 1,
+				set(hotspot[coral_stage_01].visible, false);
+				set(hotspot[coral_stage_02].visible, true);
+				set(coral_sequence_index, 2);
+			,
+				if(coral_sequence_index == 2,
+					set(hotspot[coral_stage_02].visible, false);
+					set(hotspot[coral_stage_03].visible, true);
+					set(coral_sequence_index, 3);
+				,
+					if(coral_sequence_index == 3,
+						set(hotspot[coral_stage_03].visible, false);
+						set(hotspot[coral_stage_04].visible, true);
+						set(coral_sequence_index, 4);
+					,
+						if(coral_sequence_index == 4,
+							set(hotspot[coral_stage_04].visible, false);
+							set(hotspot[coral_stage_05].visible, true);
+							set(coral_sequence_index, 5);
+						,
+							if(coral_sequence_index == 5,
+								set(hotspot[coral_stage_05].visible, false);
+								set(hotspot[coral_stage_06].visible, true);
+								set(coral_sequence_index, 6);
+							,
+								if(coral_sequence_index == 6,
+									set(hotspot[coral_stage_06].visible, false);
+									set(hotspot[coral_stage_07].visible, true);
+									set(coral_sequence_index, 7);
+								,
+									if(coral_sequence_index == 7,
+										set(hotspot[coral_stage_07].visible, false);
+										set(hotspot[coral_stage_08].visible, true);
+										set(coral_sequence_index, 8);
+									,
+										set(hotspot[coral_stage_08].visible, false);
+										set(hotspot[coral_stage_01].visible, true);
+										set(coral_sequence_index, 1);
+									);
+								);
+							);
+						);
+					);
+				);
+			);
+		</action>
+
+		<hotspot name="next_cycle_hotspot" url="media/next.webp" ath="30" atv="-20" distorted="true" scale="0.12" visible="true" onclick="next_coral_sequence();" />
+
 	</scene>
 
 
